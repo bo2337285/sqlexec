@@ -1,0 +1,14 @@
+{
+  "name": "exec-sql",
+  "version": "1.0.0",
+  "description": "to execute sql",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "execsql": "0.0.3"
+  }
+}

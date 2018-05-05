@@ -1,0 +1,21 @@
+CREATE TABLE `t_bal_sett_report` (
+  `sett_report_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '报表id',
+  `create_date` datetime NOT NULL COMMENT '创建时间',
+  `merchant_poundage` varchar(32) NOT NULL COMMENT '商家手续费',
+  `order_amount` varchar(32) NOT NULL COMMENT '订单金额',
+  `merchant_id` varchar(24) NOT NULL COMMENT '商户ID',
+  `merchant_name` varchar(64) DEFAULT NULL COMMENT '商户名称',
+  `sett_date` date NOT NULL COMMENT '结算日期',
+  `merchant_income` varchar(32) NOT NULL COMMENT '商户收入',
+  `del_flag` char(1) DEFAULT 'Y' COMMENT '删除标记',
+  `tm_smp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '数据操作时间戳',
+  `batch_no` varchar(32) DEFAULT NULL,
+  `channel_no` varchar(50) NOT NULL COMMENT '渠道ID',
+  `channel_merchant_id` varchar(32) NOT NULL COMMENT '渠道商户号',
+  `report_identify` varchar(32) DEFAULT NULL COMMENT '报表标识',
+  `trade_type` varchar(32) NOT NULL COMMENT '交易类型',
+  `sett_state` char(1) NOT NULL DEFAULT 'N' COMMENT '结算状态 N 未结算 Y 已结算',
+  `version` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '版本号',
+  PRIMARY KEY (`sett_report_id`),
+  UNIQUE KEY `report_identify` (`report_identify`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COMMENT='结算报表';
