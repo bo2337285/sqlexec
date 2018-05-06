@@ -10,7 +10,9 @@ fs.readFile(__dirname + '/data/test.sql', 'utf8', function (err, sqlText) {
     function exec(str) {
         var execObj = {}
         var tableHeadReg = /CREATE\sTABLE\s\`(\w+)\`\s\(*/g,
-            colReg = /\s/,
+            colReg = /(\`\w+\`)\s(\w+(\(\d+\))?)\s[^\r\n]*/g,
+            primaryReg = /PRIMARY\sKEY\s\(\`(\w+)\`\)/g,
+            uniqueReg = /UNIQUE\sKEY\s\`(\w+)\`\s\((`\w+\`,?)+\)\sUSING\s(BTREE|HASH)/g,
             footerReg = /\s/
         if (tableHeadReg.test(str)) {
             //匹配表头
@@ -21,6 +23,15 @@ fs.readFile(__dirname + '/data/test.sql', 'utf8', function (err, sqlText) {
             //匹配结尾
         }
         return execObj;
+    }
+    function execCol(str) {
+        
+    }
+    function execCol(str) {
+        
+    }
+    function execCol(str) {
+        
     }
     // data['tableName'] = sqlText.match(/CREATE\sTABLE\s\`(\w+)\`\s\(*/)[1]
     // //  /(`\w+`)\s(\w+(\(\d+\))?)\s((\w+)\s)+/g
